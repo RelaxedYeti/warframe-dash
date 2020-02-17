@@ -1,3 +1,6 @@
+@import "../node_modules/slick-carousel/slick/slick.css"; 
+@import "../node_modules/slick-carousel/slick/slick-theme.css";
+
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -13,4 +16,40 @@ code {
 
 .news:hover {
   cursor: pointer;
+}
+
+.slick-slide div {
+  display:block;
+}
+
+.news-image {
+  max-height:123px;
+  height:auto;
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.active a {
+  color: red !important;
+}
+
+.news-item-container a {
+  color: black;
+}
+
+.cycle-label, .cycle-countdown {
+  margin-bottom:0;
+}
+
+.cycle-label {
+  text-align: left;
+}
+
+.cycle-countdown {
+  text-align: right;
+}
+
+.news-list {
+  margin-top:2rem;
 }

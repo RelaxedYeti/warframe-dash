@@ -37,7 +37,7 @@ export class App extends React.Component {
 				fissures: response.data.fissures,
 				invasions: response.data.invasions,
 				missions: response.data.missions,
-				news: response.data.news,
+				news: response.data.news.reverse(),
 				nightwave: response.data.nightwave,
 				syndicateMissions: response.data.syndicateMissions,
 				vallisCycle: response.data.vallisCycle
@@ -64,7 +64,6 @@ export class App extends React.Component {
 					</a>
 				</header> */}
 				<Row>
-
 					<News newsArray={this.state.news} />
 					<Fissures fissuresArray={this.state.fissures} />
 					<Cycles cetusCycle={this.state.cetusCycle} earthCycle={this.state.earthCycle} vallisCycle={this.state.vallisCycle} />

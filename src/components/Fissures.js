@@ -8,10 +8,11 @@ export class Fissures extends React.Component {
         const orderedFissures = this.props.fissuresArray.sort((a, b) => {
             if(a.tierNum > b.tierNum) return 1;
             if(a.tierNum < b.tierNum) return -1;
+            return 0;
         });
 
         return(
-            <Col xs="3">
+            <Col xs="4">
                 {orderedFissures.map((value, index) => {
                     return (
                         <Card key={value.id}>

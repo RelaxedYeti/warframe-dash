@@ -1,6 +1,7 @@
 import React from 'react';
-import { Card, Col } from 'react-bootstrap';
+import { Card, Col, Row } from 'react-bootstrap';
 import Countdown from 'react-countdown';
+import { Cycle } from './Cycle';
 
 export class Cycles extends React.Component {
 
@@ -8,51 +9,19 @@ export class Cycles extends React.Component {
     earthStartDate;
     vallisStartDate;
 
-    resetCountdown(key) {
-        console.log('completed');
-        this[key] = new Date(Date.now() + 10000);
-    }
+    cetusKey;
+    earthKey;
+    vallisKey;
+
+    hourTime = 60 * (100 * 1000);
 
     render() {
-        // this.startDate = new Date(this.props.cycle.expiry);
-        this.startDate = new Date(Date.now() + 1000);
-        this.cetusStartDate = new Date(this.props.cetusCycle.expiry);
-        this.earthStartDate = new Date(this.props.earthCycle.expiry);
-        this.vallisStartDate = new Date(this.props.vallisCycle.expiry);
         return(
-            <Col xs="3">
+            <Col xs="4">
                 <h2>Cycles</h2>
-                <Card>
-                    <Card.Body>
-                        <p>Cetus Cycle</p>
-                        <p>
-                            {this.props.cetusCycle.isDay ? 'Day' : 'Night'} ends in: 
-                            <Countdown key={this.props.cetusCycle.id} daysInHours={true} date={new Date(this.cetusStartDate)} onComplete={() => this.resetCountdown('cetusStartDate') }/>
-                        </p>
-                    </Card.Body>
-                </Card>
-
-                <Card>
-                    <Card.Body>
-                        <p>Earth Cycle</p>
-                        <p>
-                            {this.props.earthCycle.isDay ? 'Day' : 'Night'} ends in: 
-                            <Countdown key={this.props.earthCycle.id} daysInHours={true} date={new Date(this.earthStartDate)} onComplete={() => this.resetCountdown('earthStartDate') }/>
-                        </p>
-                    </Card.Body>
-                </Card>
-                
-                <Card>
-                    <Card.Body>
-                        <p>Vallis Cycle</p>
-                        <p>
-                            Warm weather {this.props.vallisCycle.isWarm ? 'ends' : 'starts'} in: 
-                            <Countdown key={this.props.vallisCycle.id} daysInHours={true} date={new Date(this.vallisStartDate)} onComplete={() => this.resetCountdown('vallisStartDate') }/>
-                        </p>
-                    </Card.Body>
-                </Card>
-                
-                
+                <Cycle cycleKey={"cetusCycle"} expiry={this.props.cetusCycle.expiry} id={this.props.cetusCycle.id} intervalTime={2 * this.hourTime} isPrimary={this.props.cetusCycle.isDay} cycleText={"ends in: "} primaryText={"Day"} secondaryText={"Night"} />
+                <Cycle cycleKey={"earthCycle"} expiry={this.props.earthCycle.expiry} id={this.props.earthCycle.id} intervalTime={2 * this.hourTime} isPrimary={this.props.earthCycle.isDay} cycleText={"ends in: "} primaryText={"Day"} secondaryText={"Night"} />
+                <Cycle cycleKey={"vallisCycle"} expiry={this.props.vallisCycle.expiry} id={this.props.vallisCycle.id} intervalTime={4 * this.hourTime} isPrimary={this.props.vallisCycle.isWarm} cycleText={"weather ends in: "} primaryText={"Warm"} secondaryText={"Cold"} />
             </Col>
         );
     }
