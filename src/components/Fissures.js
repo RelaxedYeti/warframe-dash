@@ -13,11 +13,12 @@ export class Fissures extends React.Component {
 
         return(
             <Col xs="4">
+                <h2>Fissures</h2>
                 {orderedFissures.map((value, index) => {
                     return (
                         <Card key={value.id}>
                             <Card.Body>
-                                <Card.Title>{value.tier} - {value.missionType}</Card.Title>
+                                <Card.Title>{value.node} | {value.missionType} - {value.enemy} | {value.tier} Fissure</Card.Title>
                             </Card.Body>
                         </Card>
                     );
