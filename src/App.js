@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { Cycles, Fissures, News, Nightwave } from './components';
+import { Cycles, Fissures, News, Nightwave, Trader } from './components';
 import { SyndicateMissions } from './syndicate-missions/SyndicateMissions'
 import axios from 'axios'
 import { Row } from 'react-bootstrap';
@@ -21,7 +21,8 @@ export class App extends React.Component {
 			nightwave: {},
 			invasions: [],
 			syndicateMissions: [],
-			vallisCycle: {}
+			vallisCycle: {},
+			voidTrader: {}
 		}
 		this.getData();
 	}
@@ -40,7 +41,8 @@ export class App extends React.Component {
 				news: response.data.news.reverse(),
 				nightwave: response.data.nightwave,
 				syndicateMissions: response.data.syndicateMissions,
-				vallisCycle: response.data.vallisCycle
+				vallisCycle: response.data.vallisCycle,
+				voidTrader: response.data.voidTrader
 			});
 		}, error => {
 			console.log('error', error);
@@ -70,6 +72,7 @@ export class App extends React.Component {
 					{/* <SyndicateMissions syndicateMissions={this.state.syndicateMissions}/> */}
 				</Row>
 				<Nightwave nightwaveSeason={this.state.nightwave} />
+				<Trader voidTrader={this.state.voidTrader} />
 			</div>
 
 		);

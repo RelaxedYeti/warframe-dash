@@ -13,9 +13,9 @@ export class Nightwave extends React.Component {
                 <Col xs="3" key={value.id}>
                     <Card>
                         <Card.Body>
-                            <p>{value.desc}</p>
-                            <p>{value.reputation}</p>
                             <Countdown key={value.id} daysInHours={true} date={startDate} />
+                            <p>{value.reputation}</p>
+                            <p>{value.desc}</p>
                         </Card.Body>
                     </Card>
                 </Col>

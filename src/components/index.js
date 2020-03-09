@@ -3,3 +3,4 @@ export * from './Events';
 export * from './Fissures';
 export * from './News';
 export * from './Nightwave';
+export * from './Trader';
